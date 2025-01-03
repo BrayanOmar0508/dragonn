@@ -6149,17 +6149,17 @@ Shop:AddButton({Title = "Cyborg Race", function()FireRemote("CyborgTrainer", "Bu
 local NotifiFruits = false
 local NotifiTime = 15
 
---[==[workspace.ChildAdded:Connect(function(part)
+workspace.ChildAdded:Connect(function(part)
   if NotifiFruits then
     if part:IsA("Tool") or string.find(part.Name, "Fruit") then
-     --[[ redlib:MakeNotify({
+     redlib:MakeNotify({
         Title = "Fruit Notifier",
         Text = "The fruit '" .. part.Name .. "' Spawned on the Map",
         Time = NotifiTime
-      }) ]]
+      })
     end
   end
-end)]==]
+end)
 
 Visual:AddSection("Notifications")
 Visual:AddSlider("Slider", {Title = "Nofication Time",Max = 120, Min = 5, Rounding = 1, Default = 15, Callback = function(Value)
@@ -6186,7 +6186,7 @@ Visual:AddToggle("Toggle", {Title = "ESP Islands",Callback = function(Value)
   getgenv().EspIslands = Value;EspIslands()
 end})
 
---[[Visual:AddSection("Fake")
+[Visual:AddSection("Fake")
 Visual:AddParagraph({Title = "Fake Stats"})
 Visual:AddTextBox({Title = "Fake Defense",Default = "",PlaceholderText = "Defense",Callback = function(Value)
   Player.Data.Stats.Defense.Level.Value = Value
@@ -6232,4 +6232,4 @@ Visual:AddTextBox({Title = "Fake Money",Default = "",PlaceholderText = "Money",C
 end})
 Visual:AddTextBox({Title = "Fake Fragments",Default = "",PlaceholderText = "Fragments",Callback = function(Value)
   Player.Data.Fragments.Value = Value
-end})]]
+end})
